@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="#9000">
+  <RelativeLayout
+      android:id="@+id/popdialog"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true">
+      <GridView
+         android:id="@+id/gridview"
+         android:background="@drawable/prompt_menupopupwindow_grideview_bg"
+      	 android:layout_width="fill_parent"
+      	 android:layout_height="wrap_content"
+      	 android:layout_marginTop="4.7dp"
+      	 android:layout_marginRight="1.33dp"
+      	 android:layout_marginLeft="1.33dp" 
+      	 android:horizontalSpacing="0dp"
+      	 android:verticalSpacing="0dp"
+         android:numColumns="3"
+         />
+    </RelativeLayout>
+</RelativeLayout>

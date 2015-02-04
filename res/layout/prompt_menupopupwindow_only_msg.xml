@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:paddingLeft="22dip"
+	android:paddingRight="22dip"  android:clickable="true">
+
+
+	<RelativeLayout android:background="@android:color/black"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:paddingLeft="15dip" android:paddingRight="15dip"
+		android:paddingBottom="20dp">
+	
+		<TextView android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			android:id="@+id/tv_deleted_info"
+			android:layout_marginTop="21dip" 
+			android:layout_marginBottom="15dip"
+			android:text="群组名称:"  
+			android:textColor="#ffffff"
+			android:textSize="16sp" 
+			android:layout_marginLeft="10dip"
+			android:layout_centerInParent="true"
+			 />
+		</RelativeLayout>
+	</RelativeLayout>
+

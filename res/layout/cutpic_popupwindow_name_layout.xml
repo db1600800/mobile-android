@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="12dip"
+    android:paddingRight="12dip"
+   
+     >
+
+    <ScrollView    android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        android:paddingBottom="20dp"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip" >
+
+        <TextView
+            android:id="@+id/menu_pop_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="12dip"
+            android:gravity="center_horizontal"
+            android:text="控件属性"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:layout_below="@id/menu_pop_title"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/promt_menupopupwindow_line" />
+
+        <LinearLayout
+            android:id="@+id/en_name_layout"
+            android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+            android:layout_below="@id/view_divider"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/en_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text="英文名:"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/en_name_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_deleted_info"
+                android:layout_marginBottom="2dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text=""
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cn_name_layout"
+              android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+            android:layout_below="@+id/en_name_layout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/cn_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text="中文名:"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/cn_name_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text=""
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+              android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+            android:id="@+id/control_type_layout"
+            android:layout_below="@id/cn_name_layout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/control_type_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text="控件类型:"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/control_type_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text=""
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        
+        <LinearLayout
+              android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+            android:id="@+id/control_belong_layout"
+            android:layout_below="@id/control_type_layout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/control_belong_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text="控件属于:"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/control_belong_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="2dip"
+                android:text=""
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/control_belong_layout"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="14px"
+                android:layout_weight="1"
+                android:background="@drawable/selector_prompt_menupopupwindow_btn"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_prompt_menupopupwindow_btn"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

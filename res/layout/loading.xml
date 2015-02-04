@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 等待进度条布局 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_height="wrap_content"
+	android:layout_width="wrap_content">
+	<!--  
+	<com.ant.liao.GifView android:id="@+id/LoadingImgeView"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+		-->
+	<ImageView android:layout_width="120px"
+			android:layout_height="120px"
+			android:id="@+id/LoadingImgeView" android:background="@anim/loading_status"/>
+</RelativeLayout>

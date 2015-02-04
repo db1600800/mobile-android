@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_width="fill_parent"
+	android:layout_height="fill_parent" 
+	android:background="@drawable/contact_activity_bg"
+	android:gravity="center_vertical">
+
+
+	<RelativeLayout android:id="@+id/operator_top"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_alignParentTop="true" android:gravity="center_vertical|left"
+		android:background="@drawable/contact_activity_top_bg">
+		<TextView android:layout_width="wrap_content" android:id="@+id/title" android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content" android:textColor="#ffffff" android:layout_marginLeft="10dip"
+			android:textSize="16dip" android:text="请选择收听者" />
+	</RelativeLayout>
+
+
+	<FrameLayout android:id="@+id/operator_middle" android:background="@android:color/transparent"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_above="@+id/operator_bottom" android:layout_below="@+id/operator_top">
+
+	</FrameLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:id="@+id/operator_bottom" android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true" 
+		android:gravity="center" android:background="@drawable/contact_activity_bottom_bg">
+
+		<TableRow android:layout_width="fill_parent" 
+			android:layout_height="wrap_content" android:paddingLeft="10dip" android:paddingRight="10dip">
+
+			<Button android:layout_height="fill_parent"
+				android:layout_width="fill_parent" android:text="取消" android:id="@+id/cancelBtn"
+				android:layout_weight="1"  android:textColor="#ffffff" android:background="@drawable/contact_activity_bottom_btn"></Button>
+			<Button android:layout_height="fill_parent"
+				android:layout_width="fill_parent" android:text="选择" android:id="@+id/selBtn"
+				android:layout_weight="1"  android:layout_marginLeft="15dip" android:textColor="#ffffff" android:background="@drawable/contact_activity_bottom_btn"></Button>
+		</TableRow>
+
+
+
+
+	</LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:paddingLeft="12dip"
+	android:paddingRight="12dip">
+
+	<RelativeLayout android:background="@android:color/black"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:paddingLeft="15dip" android:paddingRight="15dip"
+		android:paddingBottom="20dp">
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/menu_pop_title"
+			android:layout_marginTop="12dip" android:layout_marginBottom="12dip"
+			android:text="新建群组" android:textColor="#ffffff"
+			android:textSize="14sp" android:layout_marginLeft="10dip" />
+
+
+		<View android:layout_height="2px" android:layout_width="fill_parent"
+			android:layout_marginLeft="6dp" android:layout_marginRight="6dp"
+			android:background="@drawable/promt_menupopupwindow_line" android:layout_below="@id/menu_pop_title"
+			android:id="@+id/view_divider" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/tv_deleted_info"
+			android:layout_marginTop="21dip" android:layout_marginBottom="15dip"
+			android:text="群组名称:"  android:textColor="#ffffff"
+			android:textSize="16sp" android:layout_marginLeft="10dip"
+			android:layout_below="@id/view_divider" />
+		
+		<EditText android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:id="@+id/tv_edit_name"
+			android:layout_marginTop="5dip" android:layout_marginBottom="15dip"
+			android:text="" 
+			android:textSize="16sp" android:layout_marginLeft="10dip"
+			android:layout_below="@+id/tv_deleted_info" />
+		
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_below="@+id/tv_edit_name"
+			android:gravity="center">
+			<Button android:layout_width="wrap_content" android:background="@drawable/selector_prompt_menupopupwindow_btn"
+				android:layout_height="wrap_content" android:id="@+id/btn_cancel"
+				android:text="取消" android:textColor="#ffffff"
+				android:textSize="16sp" android:layout_weight="1" android:gravity="center"
+				android:layout_marginRight="14px"/>
+			<Button android:layout_width="wrap_content" android:background="@drawable/selector_prompt_menupopupwindow_btn"
+				android:layout_height="wrap_content" android:id="@+id/btn_confirm"
+				android:text="确定" android:textColor="#ffffff"
+				android:textSize="16sp" android:layout_weight="1" android:gravity="center"/>
+		</LinearLayout>
+
+	</RelativeLayout>
+
+</RelativeLayout>

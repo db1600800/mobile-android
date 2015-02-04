@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	
+	<style name="SelfDialog" parent="@android:Theme.Dialog">
+		<!-- 更换背景图片实现半透明 -->
+		<item name="android:tint">@color/clo_bg_dialog</item>
+		<item name="android:windowBackground">@color/clo_bg_dialog</item>
+		<item name="android:windowNoTitle">true</item>
+	</style>
+
+	
+	<style name="Contact_view_item_checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+		<item name="android:button">@drawable/selector_contact_view_list_item_checkbox</item>
+	</style>
+	
+		<style name="AnimationFade">
+    	<item name="android:windowEnterAnimation">@anim/push_up_in</item>
+  	  <item name="android:windowExitAnimation">@anim/push_up_out</item>
+	</style>
+</resources>

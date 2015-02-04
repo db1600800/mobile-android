@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- 全局颜色 -->
+	<color name="clo_bg_dialog">#f5f5f5</color>
+	<color name="global_viceNumber">#ffffff</color>
+	<color name="global_pw_menu_number">#595959</color>
+	<color name="global_pw_menu_type">#999999</color>
+	<color name="prompt_menupopupwindow_bg">#c0000000</color>
+
+
+</resources>

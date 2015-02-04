@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  
+  	<RadioButton android:visibility="gone"
+    	android:id = "@+id/rb_sort_item"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	
+    	android:layout_alignParentLeft="true"
+    	android:layout_marginLeft="15dip"
+    	android:layout_centerVertical="true"
+    	android:focusable="false"
+    	/>
+    	
+    <TextView 
+    	android:id = "@+id/tv_sort_item"
+    	android:layout_width="wrap_content"
+    	android:layout_height="50dip"
+    	android:gravity="center_vertical"
+    	android:layout_centerInParent="true"
+    	android:textColor="@android:color/white"
+    	/>
+    	
+    <ImageView android:visibility="gone"
+    	android:id = "@+id/img_sort_item"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentRight="true"
+    	android:layout_marginRight="15dip"
+    	android:layout_centerVertical="true"
+    	android:focusable="false"
+    	android:clickable="false"
+    	/>
+    
+</RelativeLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:panel="http://schemas.android.com/apk/res/com.gmcc.downloadmanager"
+	android:orientation="vertical" android:id="@+id/main"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	>
+
+    <RelativeLayout 
+    
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+         android:layout_alignParentTop="true">
+         
+           <Button 
+            android:id="@+id/back_btn"
+              android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="返回"
+            />
+         <TextView 
+          android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+         android:text="安装包"
+             />
+        <Button 
+            android:id="@+id/sort_btn"
+              android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="排序"
+            />
+        
+        
+    </RelativeLayout>
+    
+    <TextView 
+        android:layout_below="@+id/title_layout"
+        android:text="本地资源"
+        android:id="@+id/Msg"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"/>"
+
+	<ListView android:id="@+id/listview" android:layout_width="fill_parent"
+		 android:layout_below="@+id/Msg"
+		android:layout_height="fill_parent"
+		 android:cacheColorHint="@null"
+		android:fastScrollEnabled="true" 
+		android:footerDividersEnabled="true"/>
+
+	
+</RelativeLayout>

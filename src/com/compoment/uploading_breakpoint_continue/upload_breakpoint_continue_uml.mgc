@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider.DatabaseHelper"
+        x="1911" y="1455">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadPartProvider"
+        x="1041" y="782">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DAO"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageUploadedTable"
+        x="1506" y="1918">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageUploadedColumns"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.http.UploadThread"
+        x="64" y="380">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.Urls"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadPartProvider"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadPartBean"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadCompleteDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailProvider"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadThreadPool"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadPartDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadResultParser"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadResultBean"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.Util"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAllProvider"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadPartBean"
+        x="449" y="219">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadCompleteBean"
+        x="500" y="923">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.util.FilePathDealWith"
+        x="32" y="-43">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageReceivedTable"
+        x="1495" y="1778">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageReceivedColumns"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider"
+        x="1380" y="1433">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider.DatabaseHelper"
+            endpointName="openHelper" kind="Simple"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageRecordColumns"
+        x="1706" y="1851">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.SentDetailDBService"
+        x="1599" y="786">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBTableDescribe"
+        x="1486" y="1593">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.compoment.uploading_breakpoint_continue.util.Util"
+        x="433" y="-42">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.compoment.uploading_breakpoint_continue.util.Urls"
+        x="492" y="-39">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageRecordTable"
+        x="1499" y="1850">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageRecordColumns"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageSentTable"
+        x="1510" y="1713">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageSentColumns"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"
+        x="777" y="716">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.CalendarDealWith"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAllBean"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadCompleteBean"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadCompleteDBService"
+        x="1622" y="647">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageReceivedColumns"
+        x="1704" y="1781">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.http.UploadThreadPool"
+        x="59" y="810">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadThread"
+            endpointName="pool" kind="Simple"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.FileDetailBean"
+        x="676" y="55">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.util.PictureDealWith"
+        x="299" y="-41">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageSentColumns"
+        x="1705" y="1712">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.FileDetailComparator"
+        x="953" y="403">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.SentDetailComparator"
+        x="954" y="469">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.CalendarDealWith"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageDownloadingColumns"
+        x="1691" y="1631">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.util.CalendarDealWith"
+        x="164" y="-41">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.FileDetailProvider"
+        x="955" y="774">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DAO"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.FileDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.SentDetailProvider"
+        x="987" y="769">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DAO"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageDownloadingTable"
+        x="1498" y="1630">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageDownloadingColumns"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadPartDBService"
+        x="1298" y="655">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.UploadActivity"
+        x="38" y="42">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadPartBean"
+            endpointName="messageUploading" kind="Simple"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadThread"
+            endpointName="messageUploadThread" kind="Simple"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"
+            endpointName="sentDetailBean" kind="Simple"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadPartProvider"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadThread"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.FileDetailProvider"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailProvider"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadPartDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.Util"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAllProvider"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.Urls"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadCompleteDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.FileDetailDBService"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadThreadPool"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.FileDetailBean"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageUploadedColumns"
+        x="1693" y="1925">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageUploadingTable"
+        x="1503" y="1994">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageUploadingColumns"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAllProvider"
+        x="962" y="759">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DAO"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentResolver"
+        x="1397" y="922">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.CalendarDealWith"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadCompleteBean"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.FileDetailDBService"
+        x="1350" y="781">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBContentResolver"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.db.FileDetailBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.UploadAll_UploadPart_FileDetail_SendDetail_DBTableDescribe.MessageUploadingColumns"
+        x="1705" y="1996">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.db.SentDetailBean"
+        x="408" y="60">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.db.FileDetailBean"
+            endpointName="messageRecord" kind="Simple"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.http.UploadResultParser"
+        x="47" y="858">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadResultBean"
+            endpointName="result" kind="Simple"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.CalendarDealWith"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.http.UploadResultBean"/>
+    </Class>
+    <Class
+        name="com.compoment.uploading_breakpoint_continue.http.UploadResultBean"
+        x="132" y="1037">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Communication destinationClassName="com.compoment.uploading_breakpoint_continue.util.CalendarDealWith"/>
+    </Class>
+</ClassDiagram>

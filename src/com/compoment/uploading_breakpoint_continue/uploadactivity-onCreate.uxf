@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.custom.Taxonomy_of_Workprocesses</type>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>960</w>
+      <h>630</h>
+    </coordinates>
+    <panel_attributes>UploadActivity.onCreate 
+	判断sd卡是否插入
+	判断是否断点上传TABLE_MESSAGE_UPLOADING
+		无断点    
+			TABLE_MESSAGE_RECORD表查文件记录，为的是在TABLE_MESSAGE_SENT插入一条记录
+			判断是否已经上传过
+				TABLE_MESSAGE_UPLOADED有记录，表示上传过
+					通知服务器记录下 ，更新本地send表记录（状态）
+				TABLE_MESSAGE_UPLOADED没记录，表示没上传过
+					执行上传线程
+		有断点
+			执行上传线程
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

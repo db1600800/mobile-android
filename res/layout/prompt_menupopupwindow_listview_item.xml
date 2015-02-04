@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="20dip" 
+	android:paddingLeft="15dip"
+	android:gravity="center_vertical"
+	>
+
+	<TextView android:layout_width="wrap_content"
+	    android:id="@+id/path_space"
+		android:layout_height="wrap_content" />
+	<ImageView android:id="@+id/path_img" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+	<TextView android:id="@+id/path_name" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:textColor="#3e3f40" android:layout_marginLeft="5dip" />
+
+</LinearLayout>

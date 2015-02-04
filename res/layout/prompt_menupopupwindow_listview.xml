@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" >
+	
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="#9000">
+	<LinearLayout android:id="@+id/operator_top"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_alignParentTop="true" android:gravity="center" android:visibility="gone"
+	
+		>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textColor="#ffffff"
+			 />
+	</LinearLayout>
+	</LinearLayout>
+
+	<RelativeLayout 
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		 android:layout_below="@+id/operator_top" 
+		android:paddingBottom="20dp" >
+
+
+
+
+		<ListView 
+			 android:dividerHeight="0.8dip"
+			android:id="@+id/lv_menus" android:cacheColorHint="#00000000"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:divider="#000000"
+			 android:clickable="false"
+			android:listSelector="@android:color/transparent"
+			/>
+
+
+
+	</RelativeLayout>
+
+	
+
+</RelativeLayout>

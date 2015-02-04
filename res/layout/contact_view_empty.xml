@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" 
+	android:orientation="vertical">
+
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_above="@+id/row2" android:gravity="center">
+	
+	</RelativeLayout>
+
+	<LinearLayout android:layout_width="fill_parent" android:layout_centerInParent="true"
+		android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/row2">
+
+		<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginLeft="15dip" android:layout_marginBottom="4dip">
+			<TextView android:layout_width="wrap_content"
+				android:layout_alignParentLeft="true" android:layout_height="wrap_content"
+				 android:text="当前没有联系人，你可以:" />
+		</RelativeLayout>
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="vertical"
+		
+			android:layout_marginLeft="15dip" android:layout_marginRight="15dip">
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:id="@+id/importView" android:layout_height="60dip"
+				android:orientation="horizontal" android:gravity="center_vertical"
+				android:paddingTop="7dip" android:paddingBottom="7dip" android:paddingLeft="5dip"
+				android:clickable="true">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content"  />
+				<LinearLayout android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginLeft="5dip">
+					<TextView android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:text="添加已有联系人"  android:textSize="16dip"/>
+
+					<TextView android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:text="移动其它号码联系人到此号" android:textSize="11dip"/>
+
+				</LinearLayout>
+			</LinearLayout>
+
+			<ImageView 
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+			</ImageView>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:id="@+id/newView" android:layout_height="60dip"
+				android:orientation="horizontal" android:gravity="center_vertical"
+				android:paddingTop="7dip" android:paddingBottom="7dip" android:paddingLeft="5dip"
+				android:clickable="true">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content"  />
+				<LinearLayout android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginLeft="5dip">
+					<TextView android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:text="新建联系人" android:textSize="16dip"/>
+
+				</LinearLayout>
+			</LinearLayout>
+
+		</LinearLayout>
+	</LinearLayout>
+
+
+
+</RelativeLayout>

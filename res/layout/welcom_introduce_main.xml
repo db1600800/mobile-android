@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/login_layout_main" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+
+	<!-- 滑屏介绍界面 -->
+	<RelativeLayout android:id="@+id/layout_introduce"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:visibility="gone">
+		<android.support.v4.view.ViewPager
+			android:id="@+id/vp_Introduce" android:layout_width="fill_parent"
+			android:layout_height="fill_parent" />
+	</RelativeLayout>
+	
+</RelativeLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/layout_search_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:layout_marginRight="30px"
+        android:gravity="center_vertical"
+        android:paddingBottom="5.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="5.0dip"
+         >
+
+        <EditText
+            android:id="@+id/edit_search"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/contact_view_search_input"
+            android:hint=" 搜索联系人"
+            android:paddingBottom="5.0dip"
+            android:paddingLeft="24.0dip"
+            android:paddingTop="5.0dip"
+            android:singleLine="true"
+            android:textSize="15.0sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+          
+            />
+
+        <ImageView
+            android:id="@+id/btn_clean_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:background="@drawable/contact_view_search_clear"
+            android:paddingLeft="4.0dip"
+            android:paddingRight="4.0dip" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/contact_line"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_below="@+id/layout_search_bar" android:visibility="gone"
+         />
+
+    <RelativeLayout
+        android:id="@+id/contact_addperson"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_line"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:paddingBottom="6dip"
+        android:paddingLeft="6dip"
+        android:paddingTop="6dip"  >
+
+        <ImageView
+            android:id="@+id/contact_item_imgView"
+            android:layout_width="42dip"
+            android:layout_height="42dip"
+            android:layout_centerVertical="true"
+               
+            android:clickable="true"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="9dip"
+            android:layout_toRightOf="@+id/contact_item_imgView"
+            android:text="新建联系人"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

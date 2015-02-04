@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>486</x>
+      <y>369</y>
+      <w>234</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>MessageDownloadingTable
+--
+ID = "msg_rcv_id"; // 留言ID
+--
+PATH = "path";
+--
+ URL = "url";
+--
+RECEIVER_NUMBER = "rcver_num";
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>270</x>
+      <y>117</y>
+      <w>36</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;63</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>324</x>
+      <y>1197</y>
+      <w>341</w>
+      <h>233</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>324;216;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>270</x>
+      <y>207</y>
+      <w>36</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;27;27;54</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>1188</y>
+      <w>197</w>
+      <h>251</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>180;234;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>99</x>
+      <y>585</y>
+      <w>630</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>MessageReceivedColumns
+--
+ID = "rcv_id"; // 留言接收记录id
+--
+TYPE = "type"; // 留言媒体类型：audio或video
+--
+PATH = "path"; // 留言媒体文件
+--
+URL = "url"; // 留言媒体文件链接
+--
+PREVIEW_IMAGE_PATH = "prev_img_path"; // 留言视频预览图
+--
+ PREVIEW_IMAGE_URL = "prev_img_url"; // 留言视频预览图链接
+--
+SENDER_NUMBER = "snder_num"; // 发送者号码
+--
+RECEIVER_NUMBER = "rcver_num"; // 接收者号码
+--
+SENT_TIME = "snd_time"; // 发送时间字符串
+--
+IS_READED = "is_readed"; // 是否已读，未读：0，已读：1
+--
+IS_DOWNLOAD_FINISHED = "is_download_finished"; // 是否已下载完成，未完成：0，已完成：1
+--
+FILE_LENGTH = "file_len"; // 留言媒体文件长度
+--
+DURATION = "duration"; // 留言媒体播放长度，单位：毫秒，精确到秒
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>576</x>
+      <y>1413</y>
+      <w>549</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>MessageUploadedTable
+--
+MESSAGE_RECORD_ID = "msg_rcd_id"; // 留言录制ID
+--
+ MESSAGE_SENT_ID = "msg_snt_id"; // 留言发送ID
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>63</x>
+      <y>369</y>
+      <w>405</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>MessageRecordTable
+--
+ID = "rcd_id"; // 录制id
+--
+PATH = "path"; // 留言媒体文件
+--
+RECORDER_TIME = "rcd_time"; // 录制时间
+--
+TYPE = "type"; // 留言媒体类型：audio或video
+--
+FILE_LENGTH = "file_len"; // 留言媒体文件长度
+--
+DURATION = "duration"; // 留言媒体播放长度，单位：毫秒，精确到秒
+--
+PREVIEW_IMAGE_PATH = "prev_img_path"; // 视频预览图路径
+--
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>261</x>
+      <y>1179</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>216</x>
+      <y>1098</y>
+      <w>520</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+文件新上传及上传部分，每个文件对应一条记录。没有增加，有则查出更新，上传完删除</panel_attributes>
+    <additional_attributes>396;81;261;45;153;81</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>198</x>
+      <y>261</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>DBTableDescribe</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>198</x>
+      <y>180</y>
+      <w>189</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>DBContentProvider</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>63</x>
+      <y>0</y>
+      <w>459</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>真正的数据表建立 插入 删除 查询 都是在extends ContentProvider 类内实现
+利用ContentProvider规避数据库开关管理生命周期，避免一系列问题．
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>360</x>
+      <y>189</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>DatabaseHelper 负责创建数据库</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Actor</type>
+    <coordinates>
+      <x>0</x>
+      <y>1215</y>
+      <w>90</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Actor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Taxonomy_of_Workprocesses</type>
+    <coordinates>
+      <x>90</x>
+      <y>1611</y>
+      <w>1152</w>
+      <h>891</h>
+    </coordinates>
+    <panel_attributes>UploadThread.uploadFile
+	  根据file_id查FileUploadPartTable 判断是否有上传过
+		不存在上传记录
+			插入一条记录
+		存在上传记录 查出来
+			已上传长度（position断点位置）=BLOCK * BLOCK_SIZE 
+			剩余长度= fileLength - position;
+			循环执行 	if (stopByUser || stopForTimeout) {break;}
+				是否到文件的末端
+					到文件末端(剩余长度==0 ),退出循环
+					最后一块Block(剩余长度 &lt; BLOCK_SIZE)
+						建立http连接 检查（	if (stopByUser || stopForTimeout) {break;}） 发OutputStream
+					非最后一块Block（剩余长度 &gt;= BLOCK_SIZE）
+						建立http连接 检查（	if (stopByUser || stopForTimeout) {break;}） 发OutputStream
+			上传完成接收、解析上传结果xml
+				MessageUploadedTable插入数据
+				更新MessageSendTable数据
+				删除FileUploadPartTable数据
+			用户取消上传 删除FileUploadPartTable数据
+			网络超时 更新FileUploadPartTable 保存数据</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>189</x>
+      <y>1422</y>
+      <w>360</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>MessageSentTable
+--
+ MESSAGE_SENT_ID = "snt_id"; // 留言发送记录id
+--
+ MESSAGE_RECORD_ID = "rcd_id"; // 留言文件id
+--
+TIME = "snt_time"; // 发送时间字符串
+--
+RECEIVER_NUMBER = "rcver_num"; // 接收者号码
+--
+SENDER_NUMBER = "snder_num"; // 发送者号码
+--
+CODE = "code"; // 发送状态：0发送成功，1发送失败
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>585</x>
+      <y>1179</y>
+      <w>387</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>FileUploadPartTable
+--
+FILE_ID:"file_id";
+--
+BLOCK:"block";// 已发送块数。块数 * buffer大小 = 断点位置
+--
+SNDER_NUMBER:"snder_num"; // 发送者号码
+--
+RCVER_NUMBER: "rcver_num"; // 收件人号码
+--
+DURATION: "duration"; 音频 视频文件播放时间长度
+--
+TYPE = "type";文件的类型（音频or视频）
+--
+ PATH = "path";//文件在手机的存储路径
+--
+SENT_ID = "msg_snt_id"; // 发送ID
+--
+备注：新上传通过file_id查不到结果，上传部分通过file_id查得到结果</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>27</x>
+      <y>1170</y>
+      <w>255</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;
+上传中途按暂停或取消，下次再继续传</panel_attributes>
+    <additional_attributes>216;27;45;63</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>198</x>
+      <y>99</y>
+      <w>189</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>DBContentResolver</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

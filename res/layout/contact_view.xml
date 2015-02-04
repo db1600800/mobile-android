@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ListView android:id="@+id/listview" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_weight="1"
+		android:fadingEdge="none" android:scrollbars="none"
+		android:background="@drawable/contact_view_bg" android:scrollingCache="false"
+		 />
+	<include android:layout_alignParentRight="true"
+		android:id="@+id/a_zQuickindexbar" layout="@layout/a_z_quick_index_bar" />
+
+
+</RelativeLayout>  
