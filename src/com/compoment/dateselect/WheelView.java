@@ -17,17 +17,20 @@
  *  limitations under the License.
  */
 
-package com.gdpost.cps.view.date;
+package com.compoment.dateselect;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import com.gdpost.cps.R;
+import com.android_demonstrate_abstractcode.R;
+
+
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;

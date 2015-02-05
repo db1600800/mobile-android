@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.gdpost.cps.view.date;
+package com.compoment.dateselect;
 
 /**
  * Wheel changed listener interface.
