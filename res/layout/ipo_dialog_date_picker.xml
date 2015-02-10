@@ -4,35 +4,36 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal" >
-     <com.gdpost.cps.view.date.WheelView
+     <com.compoment.dateselect.WheelView
          android:id="@+id/year"
          android:layout_width="wrap_content"
          android:layout_weight="1"
          android:layout_height="wrap_content" />
 
      
-     <com.gdpost.cps.view.date.WheelView
+     <com.compoment.dateselect.WheelView
          android:id="@+id/month"
          android:layout_width="wrap_content"
          android:layout_weight="1"
          android:layout_height="wrap_content" />
 
-     <com.gdpost.cps.view.date.WheelView
+     <com.compoment.dateselect.WheelView
          android:id="@+id/day"
          android:layout_width="wrap_content"
          android:layout_weight="1"
          android:layout_height="wrap_content" />
      
-     <com.gdpost.cps.view.date.WheelView
+     <com.compoment.dateselect.WheelView
          android:id="@+id/hour"
          android:layout_width="wrap_content"
          android:layout_weight="1"
          android:layout_height="wrap_content" />
      
-     <com.gdpost.cps.view.date.WheelView
+     <com.compoment.dateselect.WheelView
          android:id="@+id/min"
          android:layout_width="wrap_content"
          android:layout_weight="1"
          android:layout_height="wrap_content" />
 </LinearLayout>
+
 
