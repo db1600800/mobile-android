@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.compoment.network.HttpClientManager;
+import com.compoment.network.HttpClientManager.NetErrBean;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -141,23 +142,22 @@ public class LoginRequest {
 		String url = "http://120.197.230.39:9080/Web_Mgr/CheckIsRegister"
 				+ "?imsiNum=" + iccid;
 		// System.out.println("+++++++++++++++ check register url=" + url);
-		byte[] resp = httpClientManager.httpGet2(url);
-		if (resp != null) {
-			System.out.println("+++++++++++++++ check register resp="
-					+ new String(resp));
+		NetErrBean netErrBean = httpClientManager.httpGet(url);
+		if (netErrBean != null && netErrBean.errorCode.equals("000000")) {
+		
 			try {
-				ByteArrayInputStream bais = new ByteArrayInputStream(resp);
-				UserLoginParser parser = new UserLoginParser(bais);
-				UserBean userRegister = parser.getUserRegister();
-				String phone = userRegister.getPhone();
-
-				if (phone != null && !phone.trim().equals("")) {
-					Pattern pattern = Pattern.compile("[0-9]*");
-					Matcher isNum = pattern.matcher(phone);
-					if (isNum.matches()) {
-						return phone;
-					}
-				}
+//				ByteArrayInputStream bais = new ByteArrayInputStream(resp);
+//				UserLoginParser parser = new UserLoginParser(bais);
+//				UserBean userRegister = parser.getUserRegister();
+//				String phone = userRegister.getPhone();
+//
+//				if (phone != null && !phone.trim().equals("")) {
+//					Pattern pattern = Pattern.compile("[0-9]*");
+//					Matcher isNum = pattern.matcher(phone);
+//					if (isNum.matches()) {
+//						return phone;
+//					}
+//				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

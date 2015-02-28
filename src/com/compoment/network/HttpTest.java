@@ -9,32 +9,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+import com.compoment.network.HttpClientManager.NetErrBean;
 import com.google.gson.Gson;
 
 public class HttpTest {
 	String baseurl = "https://ip:port/front/macula-gbss-mobile/";
 
 
-	private String productSeriesGetSeries() {
+	private String http() {
 		HttpClientManager httpClientManager = new HttpClientManager();
 		String url = baseurl + "gbss-mobile/product/series/getSeries"
 				+ "?lastUpdateTime=" + "";
 
-		byte[] resp = httpClientManager.httpGet2(url);
-		if (resp != null) {
+		NetErrBean netErrBean = httpClientManager.httpGet(url);
+		if (netErrBean != null && netErrBean.errorCode.equals("000000")) {
 
 			try {
-				ByteArrayInputStream bais = new ByteArrayInputStream(resp);
-				String str = "";
-				// 默认以utf-8形式
-				String encode = "utf-8";
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(bais, encode));
-				StringBuffer sb = new StringBuffer();
-
-				while ((str = reader.readLine()) != null) {
-					sb.append(str);
-				}
+	
 
 				//value2Bean
 //				Gson gson = new Gson();
@@ -43,7 +34,7 @@ public class HttpTest {
 //				{
 //		        System.out.println(bean.toString());
 //				}
-				return sb.toString();
+				return "";
 
 			} catch (Exception e) {
 				e.printStackTrace();

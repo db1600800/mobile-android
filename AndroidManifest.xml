@@ -1,10 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android_demonstrate_abstractcode"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15" />
-
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="15" />
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -32,10 +33,9 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
-    <application android:label="@string/app_name"
+    <application
         android:icon="@drawable/ic_launcher"
-
-       >
+        android:label="@string/app_name" >
 
         <!--
           <activity
@@ -49,8 +49,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> -->
-          <!--
+        </activity>
+        -->
+        <!--
               <activity
             android:name="com.compoment.uploading_breakpoint_continue.UploadActivity"
             android:configChanges="keyboard|keyboardHidden"
@@ -62,9 +63,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
+        </activity>
+        -->
 
-<!--  
+
+        <!--
                     <activity
             android:name="com.compoment.uploading_breakpoint_continue.UploadActivity"
             android:configChanges="keyboard|keyboardHidden"
@@ -72,35 +75,22 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateHidden" >
             
-        </activity>-->
-           <activity
-            android:name="com.compoment.cutpic.CutMainActivity"
-            android:configChanges="keyboard|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        -->
+
+        <activity android:name="com.compoment.loading_progressdialog.Thread_loading" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-               <activity
-            android:name="com.compoment.cutpic.SeeResultActivity"
-            android:configChanges="keyboard|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" >
-           
-        </activity>
-           
-                    
-<!-- 
+
+        <!--
    <provider
             android:name="com.compoment.cutpic.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider"
             android:authorities="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider" />
- -->
+        -->
 
     </application>
 

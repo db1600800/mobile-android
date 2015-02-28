@@ -1,10 +1,14 @@
 package com.compoment.network;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,7 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.net.ssl.HttpsURLConnection;
+
+import org.apache.http.conn.ConnectTimeoutException;
 
 import android.util.Log;
 
@@ -29,185 +34,150 @@ public class HttpClientManager {
 
 
 
-	public byte[] httpGet2(String url) {
+	public NetErrBean httpGet(String url) {
 		HttpURLConnection urlCon = null;
+		NetErrBean netErrBean=new NetErrBean();
 		try {
 			urlCon = (HttpURLConnection) (new URL(url)).openConnection();
-			urlCon.setConnectTimeout(15 * 1000);
-			urlCon.setReadTimeout(15 * 1000);
+			urlCon.setConnectTimeout(3000);
+			urlCon.setReadTimeout(3000);
+		
+			 // 设置是否向httpUrlConnection输出，因为这个是post请求，参数要放在   
+			 // http正文内，因此需要设为true, 默认情况下是false;   
 			urlCon.setDoOutput(true);
 			urlCon.setRequestMethod("GET");
+			// Post 请求不能使用缓存   
 			urlCon.setUseCaches(false);
+			  // 设置是否从httpUrlConnection读入，默认情况下是true;  
 			urlCon.setDoInput(true);
-			if (cookies != null) {
-				String cookieStr = "";
-				Set<String> keys = cookies.keySet();
-				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-					String key = it.next();
-					cookieStr += " " + key + "=" + cookies.get(key) + ";";
-				}
-				if (cookieStr.length() > 0) {
-					// System.out.println(" request cookie:"+cookieStr);
-					urlCon.addRequestProperty("Cookie", cookieStr);
-				}
-			}
-			urlCon
-					.setRequestProperty(
-							"User-Agent",
-							"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)");
-			if (heads != null) {
-				Set<String> keys = heads.keySet();
-				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-					String key = it.next();
-					urlCon.setRequestProperty(key, heads.get(key));
-				}
-			}
-			InputStream input = urlCon.getInputStream();
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			// baos.write
-			byte[] buffer = new byte[1024];
-			int count = -1;
-			while ((count = input.read(buffer, 0, 1024)) != -1) {
-				baos.write(buffer, 0, count);
-			}
-			Map<String, List<String>> fileds = urlCon.getHeaderFields();
-			Set<String> keys = fileds.keySet();
-			for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-				String key = it.next();
-				List<String> values = fileds.get(key);
-				for (int i = 0; i < values.size(); i++) {
-					String value = values.get(i);
-					// System.out.println("+++++ head, key="+key+", value="+value);
-					if ("Set-Cookie".equals(key)) {
-						String nameValueStr = value.split(";")[0];
-						String[] nameValue = nameValueStr.split("=");
-						cookies.put(nameValue[0], nameValue[1]);
-						// System.out.println("add cookie, name="+nameValue[0]+", value="+nameValue[1]);
-					}
-				}
+//			if (cookies != null) {
+//				String cookieStr = "";
+//				Set<String> keys = cookies.keySet();
+//				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
+//					String key = it.next();
+//					cookieStr += " " + key + "=" + cookies.get(key) + ";";
+//				}
+//				if (cookieStr.length() > 0) {
+//					// System.out.println(" request cookie:"+cookieStr);
+//					urlCon.addRequestProperty("Cookie", cookieStr);
+//				}
+//			}
+			
+			
+			 // 设定传送的内容类型是可序列化的java对象   
+			// (如果不设此项,在传送序列化对象时,当WEB服务默认的不是这种类型时可能抛java.io.EOFException)   
+			//urlCon.setRequestProperty("Content-type", "application/x-java-serialized-object");  
+			urlCon.setRequestProperty("Charset", "utf-8");
+//			urlCon
+//					.setRequestProperty(
+//							"User-Agent",
+//							"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)");
 
+			
+//			if (heads != null) {
+//				Set<String> keys = heads.keySet();
+//				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
+//					String key = it.next();
+//					urlCon.setRequestProperty(key, heads.get(key));
+//				}
+//			}
+
+			
+			
+			InputStreamReader in = new InputStreamReader(urlCon.getInputStream(),"utf-8");
+			BufferedReader bufferedReader = new BufferedReader(in);
+			StringBuffer resultBuffer = new StringBuffer();
+			String line = null;
+			while ((line = bufferedReader.readLine()) != null) {
+				resultBuffer.append(line);
 			}
-			return baos.toByteArray();
-		} catch (MalformedURLException e) {
+		
+			
+			
+			
+//			Map<String, List<String>> fileds = urlCon.getHeaderFields();
+//			Set<String> keys = fileds.keySet();
+//			for (Iterator<String> it = keys.iterator(); it.hasNext();) {
+//				String key = it.next();
+//				List<String> values = fileds.get(key);
+//				for (int i = 0; i < values.size(); i++) {
+//					String value = values.get(i);
+//					// System.out.println("+++++ head, key="+key+", value="+value);
+//					if ("Set-Cookie".equals(key)) {
+//						String nameValueStr = value.split(";")[0];
+//						String[] nameValue = nameValueStr.split("=");
+//						cookies.put(nameValue[0], nameValue[1]);
+//						// System.out.println("add cookie, name="+nameValue[0]+", value="+nameValue[1]);
+//					}
+//				}
+//
+//			}
+			netErrBean.errorCode="000000";
+			netErrBean.errorMsg="访问服务器正常";
+			netErrBean.errorType="01";
+			netErrBean.returnData=resultBuffer.toString();
+			return netErrBean;
+		}
+		
+		catch (EOFException e) {
+			//抛出此类异常，表示连接丢失，也就是说网络连接的另一端非正常关闭连接（可能是主机断电、网线出现故障等导致）
 			e.printStackTrace();
-		} catch (IOException e) {
+			netErrBean.errorCode="000001";
+			netErrBean.errorMsg="抛出此类异常，表示连接丢失，也就是说网络连接的另一端非正常关闭连接（可能是主机断电、网线出现故障等导致）";
+			netErrBean.errorType="01";
+			netErrBean.returnData="";
+			return netErrBean;
+		
+			
+		}
+		catch (MalformedURLException e) {
+			//1、URL协议、格式或者路径错误， 好好检查下你程序中的代码
+			//如果是路径问题，最好不要包含中文路径，因为有时中文路径会乱码，导致无法识别
 			e.printStackTrace();
+			
+			netErrBean.errorCode="000002";
+			netErrBean.errorMsg="URL协议、格式或者路径错误";
+			netErrBean.errorType="01";
+			netErrBean.returnData="";
+			return netErrBean;
+		}
+		catch (ConnectTimeoutException e) {
+			//连接服务器超时
+			e.printStackTrace();
+			
+			netErrBean.errorCode="000003";
+			netErrBean.errorMsg="连接服务器超时";
+			netErrBean.errorType="01";
+			netErrBean.returnData="";
+			return netErrBean;
+		} 
+		catch (SocketTimeoutException e) {
+			//服务器响应超时
+			e.printStackTrace();
+			netErrBean.errorCode="000004";
+			netErrBean.errorMsg="服务器响应超时";
+			netErrBean.errorType="01";
+			netErrBean.returnData="";
+			return netErrBean;
+		} 
+		
+		
+		catch (IOException e) {
+			e.printStackTrace();
+			netErrBean.errorCode="000005";
+			netErrBean.errorMsg="IOException";
+			netErrBean.errorType="01";
+			netErrBean.returnData="";
+			return netErrBean;
 		} catch (Exception e) {
 			e.printStackTrace();
+			netErrBean.errorCode="000006";
+			netErrBean.errorMsg="其它错误";
+			netErrBean.errorType="01";
+			netErrBean.returnData="";
+			return netErrBean;
 		}
-		return null;
-	}
-
-	public byte[] httpPost2(String url, byte[] postContent) {
-		HttpURLConnection urlCon = null;
-		try {
-			urlCon = (HttpURLConnection) (new URL(url)).openConnection();
-			urlCon.setConnectTimeout(15 * 1000);
-			urlCon.setReadTimeout(15 * 1000);
-			urlCon.setUseCaches(false);
-			urlCon.setDoInput(true);
-			urlCon.setDoOutput(true);
-			urlCon.setRequestMethod("POST");
-			// HttpsURLConnection.setFollowRedirects(true);
-
-			// System.out.println("@@@ postContent="+new String(postContent));
-			urlCon.getOutputStream().write(postContent, 0, postContent.length);
-			urlCon.getOutputStream().flush();
-			urlCon.getOutputStream().close();
-
-
-
-			InputStream input = urlCon.getInputStream();
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			// System.out.println("@@@ response code="+urlCon.getResponseCode());
-			// baos.write
-			byte[] buffer = new byte[1024];
-			int count = -1;
-			while ((count = input.read(buffer, 0, 1024)) != -1) {
-				baos.write(buffer, 0, count);
-			}
-			Map<String, List<String>> fileds = urlCon.getHeaderFields();
-			Set<String> keys = fileds.keySet();
-			for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-				String key = it.next();
-				List<String> values = fileds.get(key);
-				for (int i = 0; i < values.size(); i++) {
-					String value = values.get(i);
-					// System.out.println("+++++ head, key="+key+", value="+value);
-					if ("Set-Cookie".equals(key)) {
-						String nameValueStr = value.split(";")[0];
-						String[] nameValue = nameValueStr.split("=");
-						cookies.put(nameValue[0], nameValue[1]);
-						// System.out.println("add cookie, name="+nameValue[0]+", value="+nameValue[1]);
-					}
-				}
-
-			}
-			return baos.toByteArray();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public byte[] httpPostFor3SecondTimeOut(String url, byte[] postContent) {
-		HttpURLConnection urlCon = null;
-		try {
-			urlCon = (HttpURLConnection) (new URL(url)).openConnection();
-			urlCon.setConnectTimeout(3 * 1000);
-			urlCon.setReadTimeout(3 * 1000);
-			urlCon.setUseCaches(false);
-			urlCon.setDoInput(true);
-			urlCon.setDoOutput(true);
-			urlCon.setRequestMethod("POST");
-			// HttpsURLConnection.setFollowRedirects(true);
-
-			// System.out.println("@@@ postContent="+new String(postContent));
-			urlCon.getOutputStream().write(postContent, 0, postContent.length);
-			urlCon.getOutputStream().flush();
-			urlCon.getOutputStream().close();
-
-
-
-			InputStream input = urlCon.getInputStream();
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			// System.out.println("@@@ response code="+urlCon.getResponseCode());
-			// baos.write
-			byte[] buffer = new byte[1024];
-			int count = -1;
-			while ((count = input.read(buffer, 0, 1024)) != -1) {
-				baos.write(buffer, 0, count);
-			}
-			Map<String, List<String>> fileds = urlCon.getHeaderFields();
-			Set<String> keys = fileds.keySet();
-			for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-				String key = it.next();
-				List<String> values = fileds.get(key);
-				for (int i = 0; i < values.size(); i++) {
-					String value = values.get(i);
-					// System.out.println("+++++ head, key="+key+", value="+value);
-					if ("Set-Cookie".equals(key)) {
-						String nameValueStr = value.split(";")[0];
-						String[] nameValue = nameValueStr.split("=");
-						cookies.put(nameValue[0], nameValue[1]);
-						// System.out.println("add cookie, name="+nameValue[0]+", value="+nameValue[1]);
-					}
-				}
-
-			}
-			return baos.toByteArray();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+	
 	}
 
 	public byte[] httpPost(String url, byte[] postContent) {
@@ -220,54 +190,15 @@ public class HttpClientManager {
 			urlCon.setDoInput(true);
 			urlCon.setDoOutput(true);
 			urlCon.setRequestMethod("POST");
-			HttpsURLConnection.setFollowRedirects(true);
+			// HttpsURLConnection.setFollowRedirects(true);
 
-			if (cookies != null) {
-				String cookieStr = "";
-				Set<String> keys = cookies.keySet();
-				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-					String key = it.next();
-					cookieStr += " " + key + "=" + cookies.get(key) + ";";
-				}
-				if (cookieStr.length() > 0) {
-					// System.out.println(" request cookie:"+cookieStr);
-					urlCon.addRequestProperty("Cookie", cookieStr);
-				}
-			}
-			urlCon
-					.setRequestProperty(
-							"User-Agent",
-							"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)");
-			urlCon.setRequestProperty("Content-Length", "" + postContent.length);
-			urlCon.setRequestProperty("Connection", "Keep-Alive");// ά�ֳ�����
-			Set<String> keySet = heads.keySet();
-			for (Iterator<String> it = keySet.iterator(); it.hasNext();) {
-				String key = it.next();
-				String value = heads.get(key);
-				urlCon.setRequestProperty(key, value);
-			}
-
-			Map<String, List<String>> refileds = urlCon.getRequestProperties();
-			Set<String> rekeys = refileds.keySet();
-			for (Iterator<String> it = rekeys.iterator(); it.hasNext();) {
-				String key = it.next();
-				List<String> values = refileds.get(key);
-				for (int i = 0; i < values.size(); i++) {
-					String value = values.get(i);
-					// System.out.println("+++++request head, key="+key+", value="+value);
-					if ("Set-Cookie".equals(key)) {
-						String nameValueStr = value.split(";")[0];
-						String[] nameValue = nameValueStr.split("=");
-						cookies.put(nameValue[0], nameValue[1]);
-						// System.out.println("add cookie, name="+nameValue[0]+", value="+nameValue[1]);
-					}
-				}
-
-			}
 			// System.out.println("@@@ postContent="+new String(postContent));
 			urlCon.getOutputStream().write(postContent, 0, postContent.length);
 			urlCon.getOutputStream().flush();
 			urlCon.getOutputStream().close();
+
+
+
 			InputStream input = urlCon.getInputStream();
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			// System.out.println("@@@ response code="+urlCon.getResponseCode());
@@ -277,7 +208,6 @@ public class HttpClientManager {
 			while ((count = input.read(buffer, 0, 1024)) != -1) {
 				baos.write(buffer, 0, count);
 			}
-
 			Map<String, List<String>> fileds = urlCon.getHeaderFields();
 			Set<String> keys = fileds.keySet();
 			for (Iterator<String> it = keys.iterator(); it.hasNext();) {
@@ -306,6 +236,8 @@ public class HttpClientManager {
 		return null;
 	}
 
+	
+
 	public void addHead(String name, String value) {
 		if (heads == null) {
 			heads = new HashMap<String, String>();
@@ -315,6 +247,14 @@ public class HttpClientManager {
 
 	public Map<String, String> getCookies() {
 		return cookies;
+	}
+	
+	public class NetErrBean
+	{
+		public String returnData;
+		public String errorMsg;
+		public String errorCode;
+		public String errorType;
 	}
 
 }
