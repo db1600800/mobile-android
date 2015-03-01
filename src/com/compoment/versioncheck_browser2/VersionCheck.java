@@ -13,7 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.compoment.loading_progressdialog.LoadingProgressDialog;
+import com.compoment.loading_progressdialog.LoadingProgressBar;
 import com.compoment.versioncheck_browser2.util.HTTPUtils;
 import com.compoment.versioncheck_browser2.util.PackageInfo;
 

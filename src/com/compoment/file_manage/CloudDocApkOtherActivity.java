@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.android_demonstrate_abstractcode.R;
-import com.compoment.loading_progressdialog.LoadingProgressDialog;
+import com.compoment.loading_progressdialog.LoadingProgressBar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -67,7 +67,7 @@ public class CloudDocApkOtherActivity extends Activity {
 	String type = null;
 	boolean firstTime = true;
 
-	LoadingProgressDialog loading;
+	LoadingProgressBar loading;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +128,7 @@ public class CloudDocApkOtherActivity extends Activity {
 		if (firstTime && loading == null) {
 			firstTime = false;
 			if (loading == null) {
-				loading = new LoadingProgressDialog();
+				loading = new LoadingProgressBar();
 			}
 			scand();
 		}
@@ -138,7 +138,7 @@ public class CloudDocApkOtherActivity extends Activity {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 0:
-				loading.cancleProgressDialog();
+			//	loading.cancleProgressDialog();
 				break;
 			default:
 				break;
@@ -155,7 +155,7 @@ public class CloudDocApkOtherActivity extends Activity {
 			this.finish();
 		} else {
 
-			loading.showProgressDailg("提示", "正在扫描，请稍等......", this);
+			//loading.showProgressDailg("提示", "正在扫描，请稍等......", this);
 
 			listFile.clear();
 

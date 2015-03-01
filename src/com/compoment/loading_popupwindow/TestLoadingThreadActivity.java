@@ -23,18 +23,18 @@ public class TestLoadingThreadActivity extends Activity {
 	private TextView layout;
 	LoadingPopupWindow progress=null;
 	boolean firstTime=true;
-	LayoutInflater lInflater = getLayoutInflater();
+	//LayoutInflater lInflater = getLayoutInflater();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.loading_test_activity);
-		layout = (TextView) findViewById(R.id.text);		
+			
 
 		Bundle bundle = new Bundle();
 		bundle = this.getIntent().getExtras();
-		int selectType = bundle.getInt("SelectType");
+		//int selectType = bundle.getInt("SelectType");
 	
 		//TextView titleTextView = (TextView) findViewById(R.id.title);
 		//txtOverlay = (TextView)lInflater.inflate(R.layout.popup_char_textview, null);

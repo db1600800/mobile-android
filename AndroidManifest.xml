@@ -37,48 +37,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
 
-        <!--
-          <activity
-            android:name="com.compoment.contact.ContactActivity"
-            android:configChanges="keyboard|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
-        <!--
-              <activity
-            android:name="com.compoment.uploading_breakpoint_continue.UploadActivity"
-            android:configChanges="keyboard|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
-
-
-        <!--
-                    <activity
-            android:name="com.compoment.uploading_breakpoint_continue.UploadActivity"
-            android:configChanges="keyboard|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden" >
-            
-        </activity>
-        -->
-
-        <activity android:name="com.compoment.loading_progressdialog.Thread_loading" >
+       
+        <activity android:name="com.compoment.loading_progressdialog.WaitActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -86,11 +46,7 @@
             </intent-filter>
         </activity>
 
-        <!--
-   <provider
-            android:name="com.compoment.cutpic.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider"
-            android:authorities="com.compoment.uploading_breakpoint_continue.db.UploadComplete_UploadPart_FileDetail_SendDetail_DBContentProvider" />
-        -->
+     
 
     </application>
 
