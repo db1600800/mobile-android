@@ -38,7 +38,7 @@
         android:label="@string/app_name" >
 
        
-        <activity android:name="com.compoment.loading_progressdialog.WaitActivity" >
+        <activity android:name="com.compoment.network.WaitActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

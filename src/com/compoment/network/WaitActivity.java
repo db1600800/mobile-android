@@ -1,25 +1,13 @@
-package com.compoment.loading_progressdialog;
+package com.compoment.network;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.android_demonstrate_abstractcode.R;
-import com.compoment.network.HttpClientManager;
-
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Window;
 
@@ -30,6 +18,7 @@ public class WaitActivity extends Activity {
 
 	private Thread mThread;
 	String url;
+	boolean isLog=true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +35,12 @@ public class WaitActivity extends Activity {
 			return;
 
 		// 打印log
-
-		if (true) {
+		if (isLog) {
 			Log.i("hobby", url);
 		}
+
+		
+		// {"returnCode": "0","returnData": {"HEAD": { "RET_MSG": "成功", "RET_ERR": "000000"}, "RECORDNUM": "3" ,"ASS_NO": ["", "", "" ],"MAXRECORD": "6"}}
 
 		final Intent intent = new Intent();
 		final Bundle bundle = new Bundle();
@@ -67,16 +58,12 @@ public class WaitActivity extends Activity {
 
 					String jsonStr = netErrBean.returnData;
 
-					if (jsonStr == null || jsonStr.equals("")) {// 返回空字符串
-						return;
-					}
-
 					try {
 						JSONObject jsonObject = new JSONObject(jsonStr);
 
-						boolean isSuccess = jsonObject.optBoolean("returnCode");
+						boolean returnCode  = jsonObject.optBoolean("returnCode");
 						String dataJson = jsonObject.getString("returnData");
-						if (isSuccess) {// 调用成功
+						if (returnCode) {// 调用成功
 
 							JSONObject returnData = new JSONObject(dataJson);
 
@@ -85,9 +72,9 @@ public class WaitActivity extends Activity {
 								JSONObject HEAD = returnData
 										.optJSONObject("HEAD");
 								final String HOST_RET_ERR = HEAD
-										.optString("HOST_RET_ERR");
+										.optString("RET_ERR");
 								final String HOST_RET_MSG = HEAD
-										.optString("HOST_RET_MSG");
+										.optString("RET_MSG");
 								if (!HOST_RET_ERR.equals("000000")) {
 
 									if (HOST_RET_ERR.contains("2001")) {
@@ -115,7 +102,7 @@ public class WaitActivity extends Activity {
 								// "交易报文出错
 							}
 
-						} else {// 网关调用失败
+						} else {// 调用失败
 
 							runOnUiThread(new Runnable() {
 								@Override
