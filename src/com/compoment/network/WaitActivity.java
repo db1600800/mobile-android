@@ -91,7 +91,7 @@ public class WaitActivity extends Activity {
 									}
 								} else {// 报文头 0000000 表示成功获取内容
 
-									bundle.putString("result", jsonStr);
+									bundle.putString("jsonString", jsonStr);
 
 								}
 
