@@ -18,6 +18,7 @@ public class WaitActivity extends Activity {
 
 	private Thread mThread;
 	String url;
+	public static String urlbase;
 	boolean isLog=true;
 
 	@Override
