@@ -28,6 +28,23 @@ public class HttpClientManager {
 	private Map<String, String> heads = new HashMap<String, String>();
 	private Map<String, String> cookies = new HashMap<String, String>();
 
+	/**访问服务器正常  请求有响应*/
+	public static String connect000000="000000";
+	/**抛出此类异常，表示连接丢失，也就是说网络连接的另一端非正常关闭连接（可能是主机断电、网线出现故障等导致）*/
+	public static String connect000001="000001";
+	/**URL协议、格式或者路径错误*/
+	public static String connect000002="000002";
+	/**连接服务器超时 连不上服务器（网络异常或服务器没开）*/
+	public static String connect000003="000003";
+	/**服务器响应超时 */
+	public static String connect000004="000004";
+	/**IOException*/
+	public static String connect000005="000005";
+	/**其它错误*/
+	public static String connect000006="000006";
+
+	
+	
 	public HttpClientManager() {
 
 	}
@@ -36,55 +53,23 @@ public class HttpClientManager {
 
 	public NetErrBean httpGet(String url) {
 		HttpURLConnection urlCon = null;
+		InputStream is = null;  
 		NetErrBean netErrBean=new NetErrBean();
 		try {
 			urlCon = (HttpURLConnection) (new URL(url)).openConnection();
 			urlCon.setConnectTimeout(3000);
 			urlCon.setReadTimeout(3000);
 		
-			 // 设置是否向httpUrlConnection输出，因为这个是post请求，参数要放在   
-			 // http正文内，因此需要设为true, 默认情况下是false;   
-			urlCon.setDoOutput(true);
-			urlCon.setRequestMethod("GET");
-			// Post 请求不能使用缓存   
-			urlCon.setUseCaches(false);
-			  // 设置是否从httpUrlConnection读入，默认情况下是true;  
-			urlCon.setDoInput(true);
-//			if (cookies != null) {
-//				String cookieStr = "";
-//				Set<String> keys = cookies.keySet();
-//				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-//					String key = it.next();
-//					cookieStr += " " + key + "=" + cookies.get(key) + ";";
-//				}
-//				if (cookieStr.length() > 0) {
-//					// System.out.println(" request cookie:"+cookieStr);
-//					urlCon.addRequestProperty("Cookie", cookieStr);
-//				}
-//			}
+			urlCon.setDoInput(true); //允许输入流，即允许下载  
+			urlCon.setDoOutput(true); //允许输出流，即允许上传  
+			urlCon.setUseCaches(false); //不使用缓冲  
+			urlCon.setRequestMethod("GET"); //使用get请求  
+			//urlCon.setRequestProperty("Charset", "utf-8");
 			
-			
-			 // 设定传送的内容类型是可序列化的java对象   
-			// (如果不设此项,在传送序列化对象时,当WEB服务默认的不是这种类型时可能抛java.io.EOFException)   
-			//urlCon.setRequestProperty("Content-type", "application/x-java-serialized-object");  
-			urlCon.setRequestProperty("Charset", "utf-8");
-//			urlCon
-//					.setRequestProperty(
-//							"User-Agent",
-//							"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)");
 
 			
-//			if (heads != null) {
-//				Set<String> keys = heads.keySet();
-//				for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-//					String key = it.next();
-//					urlCon.setRequestProperty(key, heads.get(key));
-//				}
-//			}
-
-			
-			
-			InputStreamReader in = new InputStreamReader(urlCon.getInputStream(),"utf-8");
+			 is = urlCon.getInputStream(); 
+			InputStreamReader in = new InputStreamReader(is);
 			BufferedReader bufferedReader = new BufferedReader(in);
 			StringBuffer resultBuffer = new StringBuffer();
 			String line = null;
@@ -94,25 +79,8 @@ public class HttpClientManager {
 		
 			
 			
-			
-//			Map<String, List<String>> fileds = urlCon.getHeaderFields();
-//			Set<String> keys = fileds.keySet();
-//			for (Iterator<String> it = keys.iterator(); it.hasNext();) {
-//				String key = it.next();
-//				List<String> values = fileds.get(key);
-//				for (int i = 0; i < values.size(); i++) {
-//					String value = values.get(i);
-//					// System.out.println("+++++ head, key="+key+", value="+value);
-//					if ("Set-Cookie".equals(key)) {
-//						String nameValueStr = value.split(";")[0];
-//						String[] nameValue = nameValueStr.split("=");
-//						cookies.put(nameValue[0], nameValue[1]);
-//						// System.out.println("add cookie, name="+nameValue[0]+", value="+nameValue[1]);
-//					}
-//				}
-//
-//			}
-			netErrBean.errorCode="000000";
+
+			netErrBean.errorCode=connect000000;
 			netErrBean.errorMsg="访问服务器正常";
 			netErrBean.errorType="01";
 			netErrBean.returnData=resultBuffer.toString();
@@ -122,7 +90,7 @@ public class HttpClientManager {
 		catch (EOFException e) {
 			//抛出此类异常，表示连接丢失，也就是说网络连接的另一端非正常关闭连接（可能是主机断电、网线出现故障等导致）
 			e.printStackTrace();
-			netErrBean.errorCode="000001";
+			netErrBean.errorCode=connect000001;
 			netErrBean.errorMsg="抛出此类异常，表示连接丢失，也就是说网络连接的另一端非正常关闭连接（可能是主机断电、网线出现故障等导致）";
 			netErrBean.errorType="01";
 			netErrBean.returnData="";
@@ -135,7 +103,7 @@ public class HttpClientManager {
 			//如果是路径问题，最好不要包含中文路径，因为有时中文路径会乱码，导致无法识别
 			e.printStackTrace();
 			
-			netErrBean.errorCode="000002";
+			netErrBean.errorCode=connect000002;
 			netErrBean.errorMsg="URL协议、格式或者路径错误";
 			netErrBean.errorType="01";
 			netErrBean.returnData="";
@@ -145,7 +113,7 @@ public class HttpClientManager {
 			//连接服务器超时
 			e.printStackTrace();
 			
-			netErrBean.errorCode="000003";
+			netErrBean.errorCode=connect000003;
 			netErrBean.errorMsg="连接服务器超时";
 			netErrBean.errorType="01";
 			netErrBean.returnData="";
@@ -154,7 +122,7 @@ public class HttpClientManager {
 		catch (SocketTimeoutException e) {
 			//服务器响应超时
 			e.printStackTrace();
-			netErrBean.errorCode="000004";
+			netErrBean.errorCode=connect000004;
 			netErrBean.errorMsg="服务器响应超时";
 			netErrBean.errorType="01";
 			netErrBean.returnData="";
@@ -164,19 +132,31 @@ public class HttpClientManager {
 		
 		catch (IOException e) {
 			e.printStackTrace();
-			netErrBean.errorCode="000005";
+			netErrBean.errorCode=connect000005;
 			netErrBean.errorMsg="IOException";
 			netErrBean.errorType="01";
 			netErrBean.returnData="";
 			return netErrBean;
 		} catch (Exception e) {
 			e.printStackTrace();
-			netErrBean.errorCode="000006";
+			netErrBean.errorCode=connect000006;
 			netErrBean.errorMsg="其它错误";
 			netErrBean.errorType="01";
 			netErrBean.returnData="";
 			return netErrBean;
-		}
+		}finally{  
+            if(is != null){  
+                try {  
+                    is.close();  
+                } catch (IOException e) {  
+                    // TODO Auto-generated catch block  
+                    e.printStackTrace();  
+                }  
+            }  
+            if(urlCon != null){  
+            	urlCon.disconnect();  
+            }  
+        }  
 	
 	}
 
@@ -258,3 +238,4 @@ public class HttpClientManager {
 	}
 
 }
+
