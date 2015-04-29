@@ -119,7 +119,7 @@ public class WaitActivity extends Activity {
 										.optJSONObject("head");
 								String body=returnData.getString("body");
 								final String HOST_RET_ERR = HEAD
-										.optString("ret_err");
+										.optString("ret_errcode");
 								final String HOST_RET_MSG = HEAD
 										.optString("ret_msg");
 								if (!HOST_RET_ERR.equals("000000")) {
