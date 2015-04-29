@@ -88,7 +88,7 @@ public class WaitActivity extends Activity {
 
 				// 发起请求
 				HttpClientManager httpClientManager = new HttpClientManager();
-				HttpClientManager.NetErrBean netErrBean = httpClientManager
+				final HttpClientManager.NetErrBean netErrBean = httpClientManager
 						.httpGet(url);
 				if (netErrBean != null && netErrBean.errorCode.equals(HttpClientManager.connect000000)) {// 有数据返回 数据对不对看下面
 
@@ -96,8 +96,14 @@ public class WaitActivity extends Activity {
 					
 					if(jsonStr==null||jsonStr.equals(""))
 					{
-						Toast.makeText(WaitActivity.this, "数据为空", Toast.LENGTH_SHORT).show();
-						finish();
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								Toast.makeText(WaitActivity.this, "数据为空", Toast.LENGTH_SHORT).show();
+								finish();
+							}
+						});
+						
 					}
 					
 					if (isLog) {
@@ -137,8 +143,14 @@ public class WaitActivity extends Activity {
 
 									}
 									
-									Toast.makeText(WaitActivity.this, HOST_RET_MSG, Toast.LENGTH_SHORT).show();
-									finish();
+									runOnUiThread(new Runnable() {
+										@Override
+										public void run() {
+											Toast.makeText(WaitActivity.this, HOST_RET_MSG, Toast.LENGTH_SHORT).show();
+											finish();
+										}
+									});
+									
 								} else 
 								
 								{// 报文头 0000000 表示成功获取内容
@@ -183,8 +195,14 @@ public class WaitActivity extends Activity {
 				} else if (netErrBean != null
 						&& !netErrBean.errorCode.equals(HttpClientManager.connect000000)) {//网络不好 服务器没开  服务器太忙没响应
 
-					Toast.makeText(WaitActivity.this, netErrBean.errorMsg, Toast.LENGTH_SHORT).show();
-					finish();
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							Toast.makeText(WaitActivity.this, netErrBean.errorMsg, Toast.LENGTH_SHORT).show();
+							finish();
+						}
+					});
+				
 				}
 
 				intent.putExtras(bundle);
