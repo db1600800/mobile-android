@@ -78,8 +78,6 @@ public class WaitActivity extends Activity {
 		}
 
 		
-		// {"returnCode": "0","returnData": {"HEAD": { "RET_MSG": "成功", "RET_ERR": "000000"}, "RECORDNUM": "3" ,"ASS_NO": ["", "", "" ],"MAXRECORD": "6"}}
-
 		final Intent intent = new Intent();
 		final Bundle bundle = new Bundle();
 
@@ -101,7 +99,11 @@ public class WaitActivity extends Activity {
 						Toast.makeText(WaitActivity.this, "数据为空", Toast.LENGTH_SHORT).show();
 						finish();
 					}
-		
+					
+					if (isLog) {
+						Log.i("hobby", url);
+					}
+					
 					try {
     					JSONObject jsonObject = new JSONObject(jsonStr);
 
@@ -115,6 +117,7 @@ public class WaitActivity extends Activity {
 
 								JSONObject HEAD = returnData
 										.optJSONObject("head");
+								String body=returnData.getString("body");
 								final String HOST_RET_ERR = HEAD
 										.optString("ret_err");
 								final String HOST_RET_MSG = HEAD
@@ -140,7 +143,7 @@ public class WaitActivity extends Activity {
 								
 								{// 报文头 0000000 表示成功获取内容
 
-									bundle.putString("jsonString", jsonStr);
+									bundle.putString("jsonString", body);
 
 								}
 
