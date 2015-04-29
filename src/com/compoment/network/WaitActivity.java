@@ -55,7 +55,7 @@ public class WaitActivity extends Activity {
 
 	private Thread mThread;
 	String url;
-	public static String urlbase="http://10.0.3.2:8080/web/Serverlet4453020";
+	public static String urlbase="http://10.0.3.2:8080/web";
 	boolean isLog=true;
 
 	@Override
@@ -94,7 +94,7 @@ public class WaitActivity extends Activity {
 
 					String jsonStr = netErrBean.returnData;
 					
-					if(jsonStr==null||jsonStr.contains(""))
+					if(jsonStr==null||jsonStr.equals(""))
 					{
 						Toast.makeText(WaitActivity.this, "数据为空", Toast.LENGTH_SHORT).show();
 						finish();
